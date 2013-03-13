@@ -1,0 +1,11 @@
+=form_for @subsr, :remote => true do |f|
+  =f.label :username
+  =f.text_field :username, :autofocus => true, :placeholder => "janedoe"
+  =f.label :email
+  =f.text_field :email, :autofocus => true, :placeholder => "jane@doe.com"
+  =f.label :password
+  =f.password_field :password, :placeholder => "example: abc"
+  =f.label :password_confirmation
+  =f.password_field :password_confirmation, :placeholder => "example: abc"
+  =f.submit
+  =button_to_function("Cancel", "cancel_subsr_form()")
