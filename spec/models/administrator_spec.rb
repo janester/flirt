@@ -22,5 +22,14 @@ describe Administrator do
       expect(administrator.id).to_not be nil
     end
   end
+  describe "#metadata" do
+    it "has admin properties" do
+      administrator = Administrator.create(role:"db", ssn:"111-22-3333", phone:"123-456-7891")
+      expect(administrator.id).to_not be nil
+      expect(administrator.role).to eq "db"
+      expect(administrator.ssn).to eq "111-22-3333"
+      expect(administrator.phone).to eq "123-456-7891"
+    end
+  end
 
 end

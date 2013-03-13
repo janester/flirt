@@ -16,13 +16,7 @@ describe Subscriber do
       expect(subscriber.user).to be_an_instance_of(User)
     end
   end
-  # it "has email, username, password, and password confirmation" do
-  #   subscriber = Subscriber.new(email:"jane@jane.com", username:"janeliza", password:"abc", password_confirmation:"abc")
-  #   expect(subscriber.email).to eq "jane@jane.com"
-  #   expect(subscriber.username).to eq "janeliza"
-  #   expect(subscriber.password).to eq "abc"
-  #   expect(subscriber.password_confirmation).to eq "abc"
-  # end
+
   describe ".create" do
     it "has an id" do
       subscriber = Subscriber.create
@@ -30,4 +24,23 @@ describe Subscriber do
     end
   end
 
+  describe "#metadata" do
+    it "has subscriber properties" do
+      subscriber = Subscriber.create(tagline:"a", bio:"b", preferences:"c, d, e", bodytype:"f", location: "g", status: "h", ethnicity:"i", gender:"j", age:1 , occupation:"l", interests:"m", political:"n", religious:"o", education:"p", income:1)
+      expect(subscriber.tagline).to eq "a"
+      expect(subscriber.bio).to eq "b"
+      expect(subscriber.preferences).to eq "c, d, e"
+      expect(subscriber.bodytype).to eq "f"
+      expect(subscriber.location).to eq "g"
+      expect(subscriber.status).to eq "h"
+      expect(subscriber.ethnicity).to eq "i"
+      expect(subscriber.gender).to eq "j"
+      expect(subscriber.age).to eq 1
+      expect(subscriber.occupation).to eq "l"
+      expect(subscriber.interests).to eq "m"
+      expect(subscriber.political).to eq "n"
+      expect(subscriber.religious).to eq "o"
+      expect(subscriber.income).to eq 1
+    end
+  end
 end
