@@ -35,6 +35,12 @@ describe 'Session' do
       fill_in("password", :with => "abc")
       click_button("Start Flirting")
       page.should_not have_button("Start Flirting")
+      page.should have_link("Logout")
+      page.should have_link(user.username)
+      visit root_path
+      page.should_not have_button("Start Flirting")
+      page.should have_link("Logout")
+      page.should have_link(user.username)
     end
     it "logs the user into the system incorrectly", :js => true do
       visit root_path
@@ -43,6 +49,23 @@ describe 'Session' do
       fill_in("password", :with => "abc")
       click_button("Start Flirting")
       page.should have_button("Start Flirting")
+    end
+  end
+
+  describe "DELETE /login" do
+    let(:user) {User.create(email:"jake@jake.com", username:"jakerake", password:"abc", password_confirmation:"abc")}
+    it "logs the user off the system", :js => true do
+      visit root_path
+      click_link("Login")
+      fill_in("email", :with => user.email)
+      fill_in("password", :with => "abc")
+      click_button("Start Flirting")
+      click_link("Logout")
+      page.should_not have_link("Logout")
+      page.should_not have_link(user.username)
+      visit root_path
+      page.should_not have_link("Logout")
+      page.should_not have_link(user.username)
     end
   end
 

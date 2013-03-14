@@ -8,5 +8,5 @@
   =f.password_field :password, :placeholder => "example: abc"
   =f.label :password_confirmation
   =f.password_field :password_confirmation, :placeholder => "example: abc"
-  =f.submit
-  =button_to_function("Cancel", "cancel_subsr_form()")
+  =f.submit nil, :class => "button radius tiny"
+  =button_to_function("Cancel", "cancel_subsr_form()", :class => "button radius tiny alert")

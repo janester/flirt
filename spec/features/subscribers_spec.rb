@@ -38,12 +38,14 @@ describe 'Subscribers' do
       # page.should have_text("You have successfully created an account")
       expect(Subscriber.first.user.username).to eq "bobnob"
     end
-    it "it does not create a new subscriber", :js => true do
+    it "it does not create a new subscriber due to failing validation", :js => true do
       visit root_path
       click_link("Register")
       click_button("Create User")
       page.should have_button("Create User")
-      page.should have_text("There are 3 errors:")
+      page.should have_text("Fix the following 3 errors:")
+      page.should have_css("#form ol li")
     end
+
   end
 end

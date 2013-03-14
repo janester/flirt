@@ -3,5 +3,6 @@ Flirt::Application.routes.draw do
   resources :subscribers, :only => [:index, :new, :create]
   get '/login' => 'session#new'
   post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
 
 end

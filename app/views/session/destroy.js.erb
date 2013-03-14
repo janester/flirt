@@ -1,0 +1,6 @@
+<% if session[:user_id].nil?%>
+$("#app_btns").empty().prepend("<%=j render :partial => 'layouts/logged_out' %>");
+$("#form").empty().hide();
+<% else %>
+alert("you are not logged_out")
+<% end %>
