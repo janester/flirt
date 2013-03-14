@@ -1,2 +1,10 @@
+<% if @user.valid? %>
 $("#form").empty().hide();
+<% else %>
+$("#form").empty().append("<%=j render :partial => 'subscribers/form' %>");
+<% end %>
+
+
+
+
 // $("#form").text("You have successfully created an account");

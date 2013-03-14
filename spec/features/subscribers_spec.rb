@@ -26,7 +26,7 @@ describe 'Subscribers' do
   end
 
   describe 'POST /subscribers' do
-    it "it creates a new user", :js => true do
+    it "it creates a new subscriber", :js => true do
       visit root_path
       click_link("Register")
       fill_in("user_username", :with => "bobnob")
@@ -37,6 +37,13 @@ describe 'Subscribers' do
       page.should_not have_button("Create User")
       # page.should have_text("You have successfully created an account")
       expect(Subscriber.first.user.username).to eq "bobnob"
+    end
+    it "it does not create a new subscriber", :js => true do
+      visit root_path
+      click_link("Register")
+      click_button("Create User")
+      page.should have_button("Create User")
+      page.should have_text("There are 3 errors:")
     end
   end
 end
