@@ -1,9 +1,9 @@
 <% if session[:user_id].present?%>
-$("#login_form").empty();
+$("#form").empty().hide();
 $("#login_link").remove();
 var a = $("<a>").attr("href", "#")
-a.text("Log Out")
+a.text("Log Out").addClass("button radius")
 $("body").prepend(a)
 <% else %>
-$("#login_form").empty().append("<%=j render :partial => 'session/form' %>");
+$("#form").empty().show().append("<%=j render :partial => 'session/form' %>");
 <% end %>

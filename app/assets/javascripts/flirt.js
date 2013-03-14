@@ -1,8 +1,18 @@
+$(function(){
+  hide_form();
+});
+
 function cancel_subsr_form()
 {
-  $("#new_subsr_form").empty();
+  $("#form").empty();
+  hide_form();
 }
 function cancel_login_form()
 {
-  $("#login_form").empty();
+  $("#form").empty();
+  hide_form();
+}
+function hide_form()
+{
+  $("#form").hide();
 }

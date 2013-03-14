@@ -7,7 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to("Login", login_path, :remote => true, :id => "login_link" ) %>
+  <div class="row">
+    <div class="small-8 columns">
+      <h1>Flirt</h1>
+    </div>
+    <div class="small-4 columns" id="app_btns">
+      <%= link_to("Login", login_path, :remote => true, :id => "login_link", :class => "button radius" ) %>
+      <%=link_to("Register", new_subscriber_path, :remote => true, :class => "button radius")%>
+    </div>
+  </div>
+  <div class="row" id="form_row">
+    <div class="small-4 small-offset-10 columns">
+      <div id="form"></div>
+    </div>
+  </div>
+
+
 
 <%= yield %>
 
